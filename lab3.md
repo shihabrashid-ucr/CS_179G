@@ -93,6 +93,12 @@ sudo systemctl start jupyterlab
 Test in your browser
 Visit [http://cs179g-fall-2021-0#.cs.ucr.edu:8888](http://cs179g-fall-2021-0#.cs.ucr.edu:8888) (Replace # with your group number)
 
+## Kill a process
+
+```
+kill -9 $(lsof -t -i:8888)
+```
+
 ## Install PySpark
 
 1. Install JDK 8
