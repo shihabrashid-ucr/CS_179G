@@ -96,7 +96,7 @@ sudo systemctl start jupyterlab
 ```
 
 Test in your browser
-Visit [http://cs179g-fall-2021-0#.cs.ucr.edu:8888](http://cs179g-fall-2021-0#.cs.ucr.edu:8888) (Replace # with your group number)
+Visit [http://cs179g-fall-2022-0#.cs.ucr.edu:8888](http://cs179g-fall-2022-0#.cs.ucr.edu:8888) (Replace # with your group number)
 
 ## Kill a process
 
