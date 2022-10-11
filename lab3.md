@@ -198,7 +198,7 @@ Or, you can just execute the following 2 commands
 # wget to download
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_8.0.31-1ubuntu22.04_all.deb -P ~
 # dpkg to install
-sudo dpkg -i ~/mysql-connector-java_8.0.26-1ubuntu20.04_all.deb
+sudo dpkg -i ~/mysql-connector-j_8.0.31-1ubuntu22.04_all.deb
 ```
 
 
