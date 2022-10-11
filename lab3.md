@@ -207,8 +207,8 @@ Reference: [https://towardsdatascience.com/pyspark-mysql-tutorial-fa3f7c26dc7](h
 
 Download 2 test files
 ```bash
-wget https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv -P ~
-wget https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv -P ~
+wget https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv -P ~/lab3/files
+wget https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv -P ~/lab3/files
 ```
 
 Test the following Python script
