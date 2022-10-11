@@ -125,12 +125,12 @@ kill -9 $(lsof -t -i:8888)
 	Add the following line to *~/.bashrc* as well
 	```
 	export PYSPARK_PYTHON=python3
-	export SPARK_HOME=~/venv/lib/python3.8/site-packages/pyspark
+	export SPARK_HOME=~/your_venv/lib/python3.10/site-packages/pyspark
 	```
 	Or run the following commands
 	```bash
 	echo "export PYSPARK_PYTHON=python3" >> ~/.bashrc
-	echo "export SPARK_HOME=~/venv/lib/python3.8/site-packages/pyspark" >> ~/.bashrc
+	echo "export SPARK_HOME=~/your_venv/lib/python3.10/site-packages/pyspark" >> ~/.bashrc
 	```
 6. Reload bash environment, test `JAVA_HOME` and `SPARK_HOME`
 	```bash
@@ -144,7 +144,7 @@ kill -9 $(lsof -t -i:8888)
 	Test if `SPARK_HOME` is properly set
 	```bash
 	echo $SPARK_HOME
-	# /home/ubuntu/venv/lib/python3.8/site-packages/pyspark
+	# /home/ubuntu/your_venv/lib/python3.10/site-packages/pyspark
 	```
 
 #### Test in Python command line or JupyterLab
