@@ -61,6 +61,11 @@ c.NotebookApp.password = 'your_hashed_password'
 c.NotebookApp.port = 8888
 ```
 
+Run JupyterLab
+```
+jupyter lab --ip 0.0.0.0 --port 8888
+```
+
 Add JupyterLab as system service
 ```bash
 sudo vi /etc/systemd/system/jupyterlab.service
@@ -85,7 +90,7 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 
-Start
+Start using systemctl (not recommended)
 ```
 sudo systemctl start jupyterlab
 ```
