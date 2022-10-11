@@ -41,8 +41,8 @@ You should see some message from your EC2 instance and `ubuntu@ip-###-###-###-##
 3. Run the following command (from your local machine) to copy the auto-generated SSH keys to your local machine from bolt
 	```bash
 	if [[ ! -d ~/.ssh ]]; then mkdir ~/.ssh; chmod 0700 ~/.ssh; fi
-	scp ucr_net_id@bolt.cs.ucr.edu:/extra/cs179g/ucr_net_id/id_rsa ~/.ssh/
-	chmod 0600 ~/.ssh/id_rsa
+	scp ucr_net_id@bolt.cs.ucr.edu:/extra/cs179g/ucr_net_id/id_rsa ~/.ssh/id_rsa_cs179g
+	chmod 0600 ~/.ssh/id_rsa_cs179g
 	```
 4. Try SSH to bolt to see if it requires a password
 	```bash
@@ -50,16 +50,16 @@ You should see some message from your EC2 instance and `ubuntu@ip-###-###-###-##
 	```
 	If it does not work, try
 	```bash
-	ssh -i ~/.ssh/id_rsa ucr_net_id@bolt.cs.ucr.edu
+	ssh -i ~/.ssh/id_rsa_cs179g ucr_net_id@bolt.cs.ucr.edu
 	```
 5. Create a shortcut to the EC2 instance, by adding one entry to `~/.ssh/config`. Open and edit the config file
 6. Add the following content to the config file
 	```
 	Host alias_name 
-	  HostName cs179g-fall-2021-0#.cs.ucr.edu
+	  HostName cs179g-fall-2022-0#.cs.ucr.edu
 	  User ubuntu
-	  IdentityFile ~/.ssh/id_rsa
-	  ProxyCommand ssh -W %h:%p -i ~/.ssh/id_rsa ucr_net_id@bolt.cs.ucr.edu
+	  IdentityFile ~/.ssh/id_rsa_cs179g
+	  ProxyCommand ssh -W %h:%p -i ~/.ssh/id_rsa_cs179g ucr_net_id@bolt.cs.ucr.edu
 	```
 	*alias_name* is your preferred name, you may just set it to `cs179g`. Replace `#`  in the HostName field with your group number.
 7. Try
