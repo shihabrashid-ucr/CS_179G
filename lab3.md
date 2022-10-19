@@ -253,7 +253,7 @@ print(db_cursor.fetchall())
 
 # Test connection to MySQL via PySpark
 # /usr/share/java/mysql-connector-java-8.0.26.jar is from mysql-connector-java
-spark = SparkSession.builder.config("spark.jars", "/usr/share/java/mysql-connector-java-8.0.26.jar") \
+spark = SparkSession.builder.config("spark.jars", "/usr/share/java/mysql-connector-j-8.0.31.jar") \
     .master("local").appName("PySpark_MySQL_test").getOrCreate()
 
 wine_df = spark.read.format("jdbc").option("url", "jdbc:mysql://localhost:3306/cs179g") \
