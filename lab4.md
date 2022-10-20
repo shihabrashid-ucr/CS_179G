@@ -539,7 +539,7 @@ pip3 install wordcloud
 ```
 
 Run wordcloud on the tweets, use following code as template to generate wordcloud.
-```
+```python
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 text = "This is a random tweet, with random words, that makes no sense with random"
