@@ -531,3 +531,22 @@ codes = sc.textFile("/home/ubuntu/lab4/country_codes.txt")
 cc_cnts = codes.map(lambda cc: (cc, 1)).reduceByKey(lambda a, b: a + b)
 cc_cnts.saveAsTextFile("/home/ubuntu/lab4/results")
 ```
+
+### Build a WordCloud
+Install wordcloud library
+```
+pip3 install wordcloud
+```
+
+Run wordcloud on the tweets, use following code as template to generate wordcloud.
+```
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+text = "This is a random tweet, with random words, that makes no sense with random"
+# Creating word_cloud with text as argument in .generate() method
+word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
+# Display the generated Word Cloud
+plt.imshow(word_cloud, interpolation='bilinear')
+plt.axis("off")
+plt.show()
+```
