@@ -5,7 +5,8 @@
 # CS 179G Lab 5
 
 ## (Re)install Spark
-
+https://www.kaggle.com/code/diniftikhar025/sentimentanalysiswithlogisticregressioninpyspark
+https://www.kaggle.com/code/nezarabdilahprakasa/sentiment-analysis-using-pyspark-big-data/notebook
 ### 1. Configure SSH to localhost
 Create a SSH key pair and add them the localhost 
 ```bash
