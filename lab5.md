@@ -43,12 +43,12 @@ source ~/.bashrc
 ### 4. Configure Spark
 Reference: [https://mallikarjuna_g.gitbooks.io/spark/content/spark-standalone-example-2-workers-on-1-node-cluster.html](https://mallikarjuna_g.gitbooks.io/spark/content/spark-standalone-example-2-workers-on-1-node-cluster.html)
 
-#### 5.1 Edit *~/spark/spark-3.2.0-bin-hadoop3.2/conf/spark-env.sh*
+#### 5.1 Edit *~/spark/spark-3.3.1-bin-hadoop3/conf/spark-env.sh*
 Make a copy of the template file
 ```bash
-cp ~/spark-3.2.0-bin-hadoop3.2/conf/spark-env.sh.template ~/spark-3.2.0-bin-hadoop3.2/conf/spark-env.sh
+cp ~/spark-3.3.1-bin-hadoop3/conf/spark-env.sh.template ~/spark-3.3.1-bin-hadoop3/conf/spark-env.sh
 ```
-Edit ***~/spark/spark-3.2.0-bin-hadoop3.2/conf/spark-env.sh***
+Edit ***~/spark/spark-3.3.1-bin-hadoop3/conf/spark-env.sh***
 ```bash
 SPARK_MASTER_HOST="127.0.0.1"
 SPARK_WORKER_CORES=1
