@@ -35,7 +35,7 @@ If you had set variable `SPARK_HOME` and `PYSPARK_PYTHON` before, remove them fr
 #### 3.2 Add environment variables for Hadoop and Spark
 Run the following commands
 ```bash
-echo "export SPARK_HOME=\"/home/ubuntu/spark-3.2.0-bin-hadoop3.2\"" >> ~/.bashrc
+echo "export SPARK_HOME=\"/home/ubuntu/spark-3.3.1-bin-hadoop3\"" >> ~/.bashrc
 echo "export PATH=\$PATH:\"\$SPARK_HOME\"/bin" >> ~/.bashrc
 source ~/.bashrc
 ```
