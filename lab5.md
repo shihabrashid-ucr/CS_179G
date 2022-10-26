@@ -7,3 +7,7 @@ https://www.kaggle.com/code/nezarabdilahprakasa/sentiment-analysis-using-pyspark
 ```bash
 gdown https://drive.google.com/uc?id=1zSkudfJkgL_NChvK2EqzU50sGpB375Aq
 ```
+Install NLTK
+```bash
+pip3 install nltk
+```
