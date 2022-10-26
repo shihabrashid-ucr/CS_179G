@@ -48,15 +48,15 @@ Make a copy of the template file
 ```bash
 cp ~/spark-3.3.1-bin-hadoop3/conf/spark-env.sh.template ~/spark-3.3.1-bin-hadoop3/conf/spark-env.sh
 ```
-Edit ***~/spark/spark-3.3.1-bin-hadoop3/conf/spark-env.sh***
+Edit ***~/spark-3.3.1-bin-hadoop3/conf/spark-env.sh***
 ```bash
 SPARK_MASTER_HOST="127.0.0.1"
 SPARK_WORKER_CORES=1
 SPARK_WORKER_MEMORY="1g"
 SPARK_WORKER_INSTANCES=2
 
-export PYSPARK_DRIVER_PYTHON="/home/ubuntu/venv/bin/python3"
-export PYSPARK_PYTHON="/home/ubuntu/venv/bin/python3"
+export PYSPARK_DRIVER_PYTHON="/home/ubuntu/YOUR_VENV/bin/python3"
+export PYSPARK_PYTHON="/home/ubuntu/YOUR_VENV/bin/python3"
 ```
 
 #### Start Spark's master and workers
@@ -67,9 +67,9 @@ $SPARK_HOME/sbin/start-all.sh
 
 You should see something like
 ```
-starting org.apache.spark.deploy.master.Master, logging to /home/ubuntu/spark-3.2.0-bin-hadoop3.2/logs/spark-ubuntu-org.apache.spark.deploy.master.Master-1-ip-#-#-#-#.out
-localhost: starting org.apache.spark.deploy.worker.Worker, logging to /home/ubuntu/spark-3.2.0-bin-hadoop3.2/logs/spark-ubuntu-org.apache.spark.deploy.worker.Worker-1-ip-#-#-#-#.out
-localhost: starting org.apache.spark.deploy.worker.Worker, logging to /home/ubuntu/spark-3.2.0-bin-hadoop3.2/logs/spark-ubuntu-org.apache.spark.deploy.worker.Worker-2-ip-#-#-#-#.out
+starting org.apache.spark.deploy.master.Master, logging to /home/ubuntu/spark-3.3.1-bin-hadoop3/logs/spark-ubuntu-org.apache.spark.deploy.master.Master-1-ip-#-#-#-#.out
+localhost: starting org.apache.spark.deploy.worker.Worker, logging to /home/ubuntu/spark-3.3.1-bin-hadoop3/logs/spark-ubuntu-org.apache.spark.deploy.worker.Worker-1-ip-#-#-#-#.out
+localhost: starting org.apache.spark.deploy.worker.Worker, logging to /home/ubuntu/spark-3.3.1-bin-hadoop3/logs/spark-ubuntu-org.apache.spark.deploy.worker.Worker-2-ip-#-#-#-#.out
 ```
 
 #### Stop Spark
