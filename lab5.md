@@ -18,14 +18,14 @@ ssh localhost "exit"
 ```
 
 ### 2. Install  [Apache Spark](https://spark.apache.org/)
-Download the archive of  [Spark](https://dlcdn.apache.org/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz), or run the following commands
+Download the archive of  [Spark](https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz), or run the following commands
 ```bash
 cd ~
 # Download and unarchive Spark
-if [[ ! -f ~/spark-3.2.0-bin-hadoop3.2.tgz ]]; then
-  wget https://dlcdn.apache.org/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz
+if [[ ! -f ~/spark-3.3.1-bin-hadoop3.tgz ]]; then
+  wget https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz
 fi
-tar xf spark-3.2.0-bin-hadoop3.2.tgz
+tar xf spark-3.3.1-bin-hadoop3.tgz
 ```
 
 ### 3. Set environment variables
