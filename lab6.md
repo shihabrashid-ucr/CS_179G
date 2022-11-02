@@ -14,7 +14,7 @@ for j in range(1,10):
 ```
 The goal of today's lab is to do big data processing with Spark on a weather station dataset. We are given two dataset, one with all the weather stations in the world listed and another with temperature, precipitation recordings.
 
-Download the dataset with `gdown`
+Download the dataset with `gdown` under `lab6/data`
 ```bash
 gdown https://drive.google.com/uc?id=1RIQDzVHKPBa1ae8L47EUyWTNRDluiqSN
 gdown https://drive.google.com/uc?id=1hscgeIPMAFM2tIt_c5AcWFkt2hFQHIXD
