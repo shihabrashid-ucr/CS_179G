@@ -16,5 +16,6 @@ The goal of today's lab is to do big data processing with Spark on a weather sta
 
 Download the dataset with `gdown`
 ```bash
-gdown sdsd
+gdown https://drive.google.com/uc?id=1RIQDzVHKPBa1ae8L47EUyWTNRDluiqSN
+gdown https://drive.google.com/uc?id=1hscgeIPMAFM2tIt_c5AcWFkt2hFQHIXD
 ```
