@@ -295,3 +295,18 @@ min_tmp_month_df.show(7)
 # Task:
 1. Create a User defined function in Spark to convert the month value to String, i.e. 1 = JAN, 2 = FEB etc. Update the dataframe to reflect this
 2. Rank the US states by their stable-ness. Order the states in an ascending order by the difference between `MAX_TEMP` and `MIN_TEMP`
+
+The output should look something like this:                                                                   
+
+    +-----+-----------------+---------+------------------+---------+------------------+
+    |STATE|         MAX_TEMP|MAX_MONTH|          MIN_TEMP|MIN_MONTH|        DIFFERENCE|
+    +-----+-----------------+---------+------------------+---------+------------------+
+    |   VI|83.50000000000001|      JUL|   75.858064516129|      MAR| 7.641935483871009|
+    |   HI|76.82384937238511|      JUN| 68.49798136645961|      FEB|   8.3258680059255|
+    |   PR|            83.73|      JUL| 74.89545454545454|      FEB| 8.834545454545463|
+    |   CA|69.66763142350858|      JUL| 50.60731882754901|      FEB|19.060312595959573|
+    |   FL|82.42849109653233|      JUL| 59.01381704980827|      JAN| 23.41467404672406|
+    |   OR|65.15714285714284|      JUL|37.184996651038176|      JAN|27.972146206104668|
+    |   WA|65.99965811965816|      JUL|35.362190650779105|      JAN| 30.63746746887906|
+    +-----+-----------------+---------+------------------+---------+------------------+
+    only showing top 7 rows
