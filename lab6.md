@@ -1,5 +1,18 @@
 # CS 179G Lab 6
 
+Change number of workers in Spark.
+```python
+from time import time
+from pyspark import SparkContext
+for j in range(1,10):
+    sc = SparkContext(master=f'local[{j}]')
+    t0 = time()
+    for i in range(10):
+        sc.parallelize([1,2] * 1000000).reduce(lambda x,y:x+y)
+    print(f'{j} executors, time= {time() - t0}')
+    sc.stop()
+```
+
 This lab will show a few example programs to find word frequencies in a document. We consider lower case letters only.
 
 - Input: Input file path.
