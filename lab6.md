@@ -292,11 +292,103 @@ min_tmp_month_df.show(7)
     +------------------+-----+---------+
     only showing top 7 rows
 
-# Task:
-1. Create a User defined function in Spark to convert the month value to String, i.e. 1 = JAN, 2 = FEB etc. Update the dataframe to reflect this
-2. Rank the US states by their stable-ness. Order the states in an ascending order by the difference between `MAX_TEMP` and `MIN_TEMP`
+```python
+# Join the max month table and min month table
+max_min_df = spark.sql("""Select max_tmp_month_vw.STATE, max_tmp_month_vw.MAX_TEMP, max_tmp_month_vw.MAX_MONTH, min_tmp_month_vw.MIN_TEMP, min_tmp_month_vw.MIN_MONTH FROM max_tmp_month_vw JOIN 
+min_tmp_month_vw ON max_tmp_month_vw.STATE = min_tmp_month_vw.STATE""")
+max_min_df.createOrReplaceTempView('max_min_vw')
+max_min_df.show(7)
+```
 
-The output should look something like this:                                                                   
+                                                                                    
+
+    +-----+-----------------+---------+------------------+---------+
+    |STATE|         MAX_TEMP|MAX_MONTH|          MIN_TEMP|MIN_MONTH|
+    +-----+-----------------+---------+------------------+---------+
+    |   AZ|85.55714285714288|        7| 48.66211859527918|        1|
+    |   SC|79.39328358208952|        7|43.868591065292065|        1|
+    |   LA| 84.9547520661157|        7|52.287098560354245|        1|
+    |   MN|65.62787934186473|        7|3.9970097357440926|        1|
+    |   NJ|70.87811158798281|        7|27.081522956326978|        1|
+    |   DC|74.97500000000001|        7|32.229032258064514|        1|
+    |   OR|65.15714285714284|        7|37.184996651038176|        1|
+    +-----+-----------------+---------+------------------+---------+
+    only showing top 7 rows
+    
+
+
+
+```python
+# coalesce decreases the number of partitions
+difference_df = spark.sql("""Select *, MAX_TEMP-MIN_TEMP as DIFFERENCE FROM max_min_vw WHERE (MAX_TEMP <> 0 AND MIN_TEMP <> 0) ORDER BY DIFFERENCE ASC """)
+difference_df.show(7)
+difference_df.coalesce(1).write.option("header", "true").option("delimiter", ",").mode("overwrite").csv("data/output")
+```
+
+                                                                                    
+
+    +-----+-----------------+---------+------------------+---------+------------------+
+    |STATE|         MAX_TEMP|MAX_MONTH|          MIN_TEMP|MIN_MONTH|        DIFFERENCE|
+    +-----+-----------------+---------+------------------+---------+------------------+
+    |   VI|83.50000000000001|        7|   75.858064516129|        3| 7.641935483871009|
+    |   HI|76.82384937238511|        6| 68.49798136645961|        2|   8.3258680059255|
+    |   PR|            83.73|        7| 74.89545454545454|        2| 8.834545454545463|
+    |   CA|69.66763142350858|        7| 50.60731882754901|        2|19.060312595959573|
+    |   FL|82.42849109653233|        7| 59.01381704980827|        1| 23.41467404672406|
+    |   OR|65.15714285714284|        7|37.184996651038176|        1|27.972146206104668|
+    |   WA|65.99965811965816|        7|35.362190650779105|        1| 30.63746746887906|
+    +-----+-----------------+---------+------------------+---------+------------------+
+    only showing top 7 rows
+    
+
+
+                                                                                    
+
+
+```python
+def convert_month(m):
+    dict = {1 : 'JAN', 2 : 'FEB', 3 : 'MAR', 4 : 'APR', 5 : 'MAY',
+            6 : 'JUN', 7 : 'JUL', 8 : 'AUG', 9 : 'SEPT', 10 : 'OCT',
+            11 : 'NOV', 12 : 'DEC'}
+    return dict[m]
+conv_month = UserDefinedFunction(lambda x : convert_month(x), StringType())
+spark.udf.register("convert_month", conv_month)
+difference_df = difference_df.withColumn('MAX_MONTH', conv_month('MAX_MONTH'))
+difference_df = difference_df.withColumn('MIN_MONTH', conv_month('MIN_MONTH'))
+difference_df.show(5)
+```
+
+    22/11/02 06:45:25 WARN SimpleFunctionRegistry: The function convert_month replaced a previously registered function.
+
+
+                                                                                    
+
+    +-----+-----------------+---------+-----------------+---------+------------------+
+    |STATE|         MAX_TEMP|MAX_MONTH|         MIN_TEMP|MIN_MONTH|        DIFFERENCE|
+    +-----+-----------------+---------+-----------------+---------+------------------+
+    |   VI|83.50000000000001|      JUL|  75.858064516129|        3| 7.641935483871009|
+    |   HI|76.82384937238511|      JUN|68.49798136645961|        2|   8.3258680059255|
+    |   PR|            83.73|      JUL|74.89545454545454|        2| 8.834545454545463|
+    |   CA|69.66763142350858|      JUL|50.60731882754901|        2|19.060312595959573|
+    |   FL|82.42849109653233|      JUL|59.01381704980827|        1| 23.41467404672406|
+    +-----+-----------------+---------+-----------------+---------+------------------+
+    only showing top 5 rows
+    
+
+
+
+```python
+difference_df.coalesce(1).write.option("header", "true").option("delimiter", ",").mode("overwrite").csv("data/output")
+```
+
+                                                                                    
+
+
+```python
+difference_df.show(7)
+```
+
+                                                                                    
 
     +-----+-----------------+---------+------------------+---------+------------------+
     |STATE|         MAX_TEMP|MAX_MONTH|          MIN_TEMP|MIN_MONTH|        DIFFERENCE|
@@ -310,3 +402,8 @@ The output should look something like this:
     |   WA|65.99965811965816|      JUL|35.362190650779105|      JAN| 30.63746746887906|
     +-----+-----------------+---------+------------------+---------+------------------+
     only showing top 7 rows
+    
+# Task:
+1. Create a User defined function in Spark to convert the month value to String, i.e. 1 = JAN, 2 = FEB etc. Update the dataframe to reflect this
+2. Rank the US states by their stable-ness. Order the states in an ascending order by the difference between `MAX_TEMP` and `MIN_TEMP`
+                                              
