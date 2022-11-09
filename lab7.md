@@ -97,3 +97,35 @@ def index(request):
     db_cursor.execute("SELECT * FROM Wines LIMIT 5;")
     return HttpResponse(str(db_cursor.fetchall()))
 ```
+To render a HTML, edit the `mysite/settings.py` `INSTALLED_APPS`:
+```
+INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+Create a `templates` directory under `polls` folder. Inside `templates` create a HTML file called `index.html`.
+<!DOCTYPE html>
+<html lang="en">
+   <head></head>
+   <body>
+      <h1>This is a demo app</h1>
+   </body>
+</html>
+edit the `polls/views.py` The return statement should be something like:
+```python3
+from django.shortcuts import render
+
+# Create your views here.
+from django.http import HttpResponse
+import mysql.connector
+
+def index(request):
+    return render(request, 'index.html')
+```
+run `python3 manage.py migrate` again before running the webserver.
