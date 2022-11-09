@@ -110,6 +110,7 @@ INSTALLED_APPS = [
 ]
 ```
 Create a `templates` directory under `polls` folder. Inside `templates` create a HTML file called `index.html`.
+```
 <!DOCTYPE html>
 <html lang="en">
    <head></head>
@@ -117,6 +118,7 @@ Create a `templates` directory under `polls` folder. Inside `templates` create a
       <h1>This is a demo app</h1>
    </body>
 </html>
+```
 edit the `polls/views.py` The return statement should be something like:
 ```python3
 from django.shortcuts import render
