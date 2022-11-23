@@ -55,7 +55,7 @@ After the above 4 steps, we already have the unique mapping of `sid` to `gpa`. N
 
 ### Compute cumulative GPA and join with students' names
 1. Edit **config.json** to modify `spark_master` to test with local/cluster mode with different number of cores/workers
-2. Run `spark-submit compute_gpa.py`. Results are saved to **students.tsv**
+2. Run `python3 compute_gpa.py`. Results are saved to **students.tsv**
 
 ### Load data into MySQL
 1. Edit **config.json** to modify `mysql_user`, `mysql_pwd` and `mysql_db` to your own MySQL credentials.  You may change `batch_size` and `index_after_load` to see if there is any performance changes. If `batch_size`  == 1, the script will insert records to MySQL one by one. If `batch_size` > 1, the script will insert multiple records in one query to MySQL. 
