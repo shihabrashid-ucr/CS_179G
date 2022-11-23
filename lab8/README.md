@@ -136,4 +136,4 @@ Suppose we just want to build a simple search engine that can show different res
 		python3 manage.py runserver 0.0.0.0:8080
 		```
 
-11. You can access your web interface at [http://cs179g-fall-2021-0#.cs.ucr.edu:8080](http://cs179g-fall-2022-0#.cs.ucr.edu:8080), modify the hostname to your instance.
+11. You can access your web interface at [http://cs179g-fall-2022-0#.cs.ucr.edu:8080](http://cs179g-fall-2022-0#.cs.ucr.edu:8080), modify the hostname to your instance.
