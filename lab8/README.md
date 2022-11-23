@@ -2,6 +2,10 @@
 
 Example project.
 
+```bash
+gdown https://drive.google.com/uc?id=1SSYHkYM8vt3cPCrjBwl35C2sIZIklX_w
+```
+
 ## Part 1: Data generation (simulation of crawling)
 Here I will randomly generate some data as the examples.
 
