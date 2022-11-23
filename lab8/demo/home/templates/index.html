@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   </head>
+   <body>
+      <h1>Demo Search Engine</h1>
+      <p>This is a demo page.</p>
+      <form action="search" method="post">
+         <p>
+            <label for="first_name">First name: </label>
+            <input id="first_name" type="text" name="fname" value="">
+            <label for="last_name">Last name: </label>
+            <input id="last_name" type="text" name="lname" value="">
+         </p>
+         <p>
+            <label for="sex">Select sex: </label>
+            <input type="radio" id="radio_sex_female" name="sex" value="f">
+            <label for="radio_sex_female">Female</label>
+            <input type="radio" id="radio_sex_male" name="sex" value="m">
+            <label for="radio_sex_male">Male</label>
+            <input type="radio" id="radio_sex_any" name="sex" value="u" checked>
+            <label for="radio_sex_any">Unspecified</label>
+         </p>
+         <p>
+            <label for="min_gpa">GPA: </label>
+            <input id="min_gpa" type="text" name="min_gpa" value="">
+            <label for="max_gpa"> ~ </label>
+            <input id="max_gpa" type="text" name="max_gpa" value="">
+         </p>
+         <p>
+            <label for="order">Order by: </label>
+            <select name="order">
+               <option value="lname" selected>Last Name</option>
+               <option value="fname">First Name</option>
+               <option value="age">Age</option>
+               <option value="gpa">GPA</option>
+            </select>
+            <input type="checkbox" id="asc" name="asc" value="1" checked>
+            <label for="asc">Ascending</label>
+         </p>
+         <p>
+            <label for="limit">Max # results: </label>
+            <select name="limit">
+               <option value="10">10</option>
+               <option value="20" selected>20</option>
+               <option value="50">50</option>
+               <option value="100">100</option>
+            </select>
+         </p>
+         <p>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+         </p>
+      </form>
+   </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "num_females": 10000,
+  "num_males": 10000,
+  "min_courses": 4,
+  "max_courses": 48,
+  "spark_master": "local[2]",
+  "mysql_user": "demo",
+  "mysql_pwd": "password",
+  "mysql_db": "demo",
+  "batch_size": 1000,
+  "index_after_load": false
+}
