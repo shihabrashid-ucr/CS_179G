@@ -47,6 +47,7 @@ Reference: [https://www.digitalocean.com/community/tutorials/how-to-set-up-a-jup
 In virtual environment
 ```bash
 python3 -m pip install jupyterlab
+pip3 install markupsafe==2.0.1
 # Create a default config file
 jupyter notebook --generate-config
 # Create a password. Your hashed password is stored in ~/.jupyter/jupyter_notebook_config.json
