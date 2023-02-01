@@ -67,35 +67,6 @@ Run JupyterLab
 jupyter lab --ip 0.0.0.0 --port 8888
 ```
 
-Add JupyterLab as system service
-```bash
-sudo vi /etc/systemd/system/jupyterlab.service
-```
-
-Paste and save
-```
-[Unit]
-Description=JupyterLab Server
-
-[Service]
-User=ubuntu
-Group=ubuntu
-Type=simple
-WorkingDirectory=/home/ubuntu/
-ExecStart=/home/ubuntu/your_venv/bin/jupyter-lab --config=/home/ubuntu/.jupyter/jupyter_notebook_config.py
-StandardOutput=null
-Restart=always
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Start using systemctl (not recommended)
-```
-sudo systemctl start jupyterlab
-```
-
 Test in your browser
 Visit [http://cs179g-fall-2022-0#.cs.ucr.edu:8888](http://cs179g-fall-2022-0#.cs.ucr.edu:8888) (Replace # with your group number)
 
