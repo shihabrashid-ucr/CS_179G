@@ -166,6 +166,8 @@ jupyter lab --ip 0.0.0.0 --port 8888
 Test in your browser
 Visit [http://cs179g-fall-2023-0#.cs.ucr.edu:8888](http://cs179g-fall-2023-0#.cs.ucr.edu:8888) (Replace # with your group number)
 
+**Please remember to close the server using `ctrl+C`.
+
 ## Kill a process
 
 ```
