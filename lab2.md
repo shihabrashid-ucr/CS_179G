@@ -127,7 +127,10 @@ Enter new environment:
 ```bash
 conda activate myenv
 ```
-
+Install `pip`:
+```bash
+sudo apt install python3-pip
+```
 **Exit Virtual Environment**
 ```bash
 conda deactivate
