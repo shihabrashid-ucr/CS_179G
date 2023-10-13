@@ -31,7 +31,7 @@ You should see some message from your EC2 instance and `ubuntu@ip-###-###-###-##
 (For newer Windows)
 Open the search option in `start` and type `PowerShell`. PowerShell is equivalent to the `terminal` on linux based systems. Follow the steps of Linux once PowerShell is opened.
 
- ## One step access to EC2 instance (Optional)
+ ## One step access to EC2 instance and VsCode (Optional but highly recommended)
  In the previous step, you can SSH to your EC2 instance by first login to bolt then `cs179g_login`. This whole process can be simplified into a single step operation (or single command).
 
 ### Linux and MacOS
