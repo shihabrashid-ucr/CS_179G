@@ -146,7 +146,7 @@ pip3 install markupsafe==2.0.1
 sudo -H pip install jupyter
 # Create a default config file
 jupyter notebook --generate-config
-# Create a password. Your hashed password is stored in ~/.jupyter/jupyter_notebook_config.json
+# Create a password. Your hashed password is stored in ~/.jupyter/jupyter_server_config.json
 jupyter notebook password
 ```
 
