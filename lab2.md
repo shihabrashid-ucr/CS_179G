@@ -15,6 +15,7 @@ You need a gateway server to connect to your group's EC2 instance. If you have u
 5. You shall see `ucr_net_id@bolt $`
 
 ### Windows
+(For Older Windows)
 1. Download and install PuTTY from [https://www.putty.org/](https://www.putty.org/). This gives you command line interface to SSH to a remote server
 2. Download and install WinSCP from [https://winscp.net/eng/index.php](https://winscp.net/eng/index.php). This is a GUI tool for file transfer via SSH
 3. Open WinSCP, select **New Site** from the left panel
@@ -25,7 +26,10 @@ You need a gateway server to connect to your group's EC2 instance. If you have u
 8. Find an icon in the toolbar with 2 monitors and a flash symbol. It should be the second button after **Synchronize**. This will open an interactive terminal via PuTTY
 
 To SSH to your group's EC2 instance, type `cs179g_login`
-You should see some message from your EC2 instance and `ubuntu@ip-###-###-###-###:~$`. The user name is `ubuntu` (default). 
+You should see some message from your EC2 instance and `ubuntu@ip-###-###-###-###:~$`. The user name is `ubuntu` (default).
+
+(For newer Windows)
+Open the search option in `start` and type `PowerShell`. PowerShell is equivalent to the `terminal` on linux based systems. Follow the steps of Linux once PowerShell is opened.
 
  ## One step access to EC2 instance
  In the previous step, you can SSH to your EC2 instance by first login to bolt then `cs179g_login`. This whole process can be simplified into a single step operation (or single command).
