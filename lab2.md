@@ -152,10 +152,10 @@ jupyter notebook password
 
 Edit *~/.jupyter/jupyter_notebook_config.py*, uncomment and edit the following settings
 ```
-c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False
-c.NotebookApp.password = 'your_hashed_password'
-c.NotebookApp.port = 8888
+c.ServerApp.ip = '*'
+c.ServerApp.open_browser = False
+c.ServerApp.password = 'your_hashed_password'
+c.ServerApp.port = 8888
 ```
 
 Run JupyterLab
