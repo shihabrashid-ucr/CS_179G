@@ -98,6 +98,8 @@ Ref: [https://winscp.net/eng/docs/ui_login_tunnel](https://winscp.net/eng/docs/u
 14. **OK** and then **Save** the site. You may name the site to `cs179g`
 15. Now you can directly login to your EC2 instance. If you open PuTTY from there, the command line is for your EC2 instance
 
+Download and Install VSCode. Install `Remote-SSH` extension in VSCode. Now you will be able to open and code in lab server directly from vscode.
+
 ## Initial Setup
 ```bash
 sudo apt-get update
