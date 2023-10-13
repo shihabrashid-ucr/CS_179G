@@ -107,23 +107,33 @@ sudo apt-get -y dist-upgrade
 ```
 
 ## Create virtual environment
+Install conda.
 ```bash
-sudo apt-get -y install python3-venv
-# Replace ~/your_venv with your desired path
-python3 -m venv ~/your_venv
-# Activate the environment
-source ~/your_venv/bin/activate
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+~/miniconda3/bin/conda init bash
+~/miniconda3/bin/conda init zsh
+```
+Exit the server by typing `exit` and login to server again. Check whether conda is installed properly by typing `conda list`. If it shows some list then it is installed correctly.
+
+Create new environment:
+```bash
+conda create --name myenv
+# Replace myenv with the name you want
+```
+Enter new environment:
+```bash
+conda activate myenv
 ```
 
 **Exit Virtual Environment**
 ```bash
-deactivate
+conda deactivate
 ```
 
-**Run virtual environment commands without activation**
-Add the absolute path, e.g, `~/your_venv/bin/python3`, `~/your_venv/bin/jupyter`.
-
-## Install JupyterLab (Optional)
+## Install JupyterLab (Optional - If VSCode does not work)
 Reference: [https://www.digitalocean.com/community/tutorials/how-to-set-up-a-jupyterlab-environment-on-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-jupyterlab-environment-on-ubuntu-18-04)
 
 In virtual environment
