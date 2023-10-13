@@ -31,7 +31,7 @@ You should see some message from your EC2 instance and `ubuntu@ip-###-###-###-##
 (For newer Windows)
 Open the search option in `start` and type `PowerShell`. PowerShell is equivalent to the `terminal` on linux based systems. Follow the steps of Linux once PowerShell is opened.
 
- ## One step access to EC2 instance
+ ## One step access to EC2 instance (Optional)
  In the previous step, you can SSH to your EC2 instance by first login to bolt then `cs179g_login`. This whole process can be simplified into a single step operation (or single command).
 
 ### Linux and MacOS
@@ -60,7 +60,7 @@ Open the search option in `start` and type `PowerShell`. PowerShell is equivalen
 6. Add the following content to the config file
 	```
 	Host alias_name 
-	  HostName cs179g-fall-2022-0#.cs.ucr.edu
+	  HostName cs179g-fall-2023-0#.cs.ucr.edu
 	  User ubuntu
 	  IdentityFile ~/.ssh/id_rsa_cs179g
 	  ProxyCommand ssh -W %h:%p -i ~/.ssh/id_rsa_cs179g ucr_net_id@bolt.cs.ucr.edu
@@ -86,7 +86,7 @@ Open the search option in `start` and type `PowerShell`. PowerShell is equivalen
 8. Find and open **PuTTYgen** in the start menu (under PuTTY)
 9. Click **Load** button and select the **id_rsa** file you just downloaded
 10. Click **Save private key** to save it as a new file, like `id_rsa.ppk`. You don't need to set a passphrase
-11. In WinSCP, create a new site, set **Host name** to `cs179g-fall-2021-0#.cs.ucr.edu`, where `#` is your group number; set **User name** to `ubuntu`, leave the **Password** empty
+11. In WinSCP, create a new site, set **Host name** to `cs179g-fall-2023-0#.cs.ucr.edu`, where `#` is your group number; set **User name** to `ubuntu`, leave the **Password** empty
 12. Click **Advanced**, then select **SSH** and **Authentication** on the left, under **Private key file**, select the key you just saved (`id_rsa.ppk`)
 Ref: [https://winscp.net/eng/docs/ui_login_authentication](https://winscp.net/eng/docs/ui_login_authentication)
 13. Select **Connection** and **Tunnel**, check **Connect through SSH tunnel**, and enter the following information
@@ -98,16 +98,63 @@ Ref: [https://winscp.net/eng/docs/ui_login_tunnel](https://winscp.net/eng/docs/u
 14. **OK** and then **Save** the site. You may name the site to `cs179g`
 15. Now you can directly login to your EC2 instance. If you open PuTTY from there, the command line is for your EC2 instance
 
-## Setup JupyterLab
-JupyterLab provides a web interface for you to create, edit and run Python notebook files. It also allows to edit text files or run commands from the built-in command line. Which means, you don't need SSH access or file transfers via command line or WinSCP+PuTTY anymore.
+## Initial Setup
+```bash
+sudo apt-get update
+sudo apt-get -y dist-upgrade
+```
 
-1. Refer to the first lab to create a virtual environment
-2. Install JupyterLab in the virtual environment, you must use port `8888` during the setup
-	- You may copy the settings file to your local machine to edit and transfer it back
-	- To transfer a remote file to your local machine, run `scp cs179g:remote_file_path local_file_path`
-	- To transfer a local file to the EC2 instance, run `scp local_file_path cs179g:remote_file_path`
-3. Install JupyterLab as system service
-4. Visit JupyterLab via `http://cs179g-fall-2021-0#.cs.ucr.edu:8888`. If you are off-campus, you must use the [campus VPN](https://ucrsupport.service-now.com/ucr_portal/?id=kb_article&sys_id=8a264d791b5f0c149c0b844fdd4bcb34)
+## Create virtual environment
+```bash
+sudo apt-get -y install python3-venv
+# Replace ~/your_venv with your desired path
+python3 -m venv ~/your_venv
+# Activate the environment
+source ~/your_venv/bin/activate
+```
+
+**Exit Virtual Environment**
+```bash
+deactivate
+```
+
+**Run virtual environment commands without activation**
+Add the absolute path, e.g, `~/your_venv/bin/python3`, `~/your_venv/bin/jupyter`.
+
+## Install JupyterLab (Optional)
+Reference: [https://www.digitalocean.com/community/tutorials/how-to-set-up-a-jupyterlab-environment-on-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-jupyterlab-environment-on-ubuntu-18-04)
+
+In virtual environment
+```bash
+python3 -m pip install jupyterlab
+pip3 install markupsafe==2.0.1
+# Create a default config file
+jupyter notebook --generate-config
+# Create a password. Your hashed password is stored in ~/.jupyter/jupyter_notebook_config.json
+jupyter notebook password
+```
+
+Edit *~/.jupyter/jupyter_notebook_config.py*, uncomment and edit the following settings
+```
+c.NotebookApp.ip = '*'
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = 'your_hashed_password'
+c.NotebookApp.port = 8888
+```
+
+Run JupyterLab
+```
+jupyter lab --ip 0.0.0.0 --port 8888
+```
+
+Test in your browser
+Visit [http://cs179g-fall-2023-0#.cs.ucr.edu:8888](http://cs179g-fall-2023-0#.cs.ucr.edu:8888) (Replace # with your group number)
+
+## Kill a process
+
+```
+kill -9 $(lsof -t -i:8888)
+```
 
 ## Other notes
 - Since the same instance is used by all group members, make sure only one is installing necessary software and packages, and let the others know what you have installed.
