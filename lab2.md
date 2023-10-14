@@ -56,8 +56,9 @@ Open the search option in `start` and type `PowerShell`. PowerShell is equivalen
 	```bash
 	ssh -i ~/.ssh/id_rsa_cs179g ucr_net_id@bolt.cs.ucr.edu
 	```
-5. Create a shortcut to the EC2 instance, by adding one entry to `~/.ssh/config`. Open and edit the config file
-6. Add the following content to the config file
+On your local computer,
+   Create a shortcut to the EC2 instance, by adding one entry to `~/.ssh/config`. Open and edit the config file
+   Add the following content to the config file
 	```
 	Host alias_name 
 	  HostName cs179g-fall-2023-0#.cs.ucr.edu
@@ -66,37 +67,38 @@ Open the search option in `start` and type `PowerShell`. PowerShell is equivalen
 	  ProxyCommand ssh -W %h:%p -i ~/.ssh/id_rsa_cs179g ucr_net_id@bolt.cs.ucr.edu
 	```
 	*alias_name* is your preferred name, you may just set it to `cs179g`. Replace `#`  in the HostName field with your group number.
-7. Try
+Now, Try
 	```bash
 	ssh alias_name  # ssh cs179g
 	```
 
 ### Windows
-1. In WinSCP, go to **Options**, then **Preferences**
-2. Select **Panels** from the left
-3. Check **Show hidden files** under **Common**, then **OK**
-4. Now you can see hidden files on bolt. Those files' names have a common prefix `.`
-5. On bolt, go to `/extra/cs179g/ucr_net_id`, you will find 4 files there: *config*,  *group*, *id_rsa* and *id_rsa.pub*
-6. Open PuTTY, run the following command
+1. SSH to bolt. If you are on the EC2 instance, you can type `exit` to go back to bolt
+2. Type the following command to copy the auto-generated public key for keyless access
 	```bash
 	cat /extra/cs179g/$LOGNAME/id_rsa.pub >> ~/.ssh/authorized_keys
 	chmod 0600 ~/.ssh/authorized_keys
+	exit
 	```
-7. Download **id_rsa** to your local machine
-8. Find and open **PuTTYgen** in the start menu (under PuTTY)
-9. Click **Load** button and select the **id_rsa** file you just downloaded
-10. Click **Save private key** to save it as a new file, like `id_rsa.ppk`. You don't need to set a passphrase
-11. In WinSCP, create a new site, set **Host name** to `cs179g-fall-2023-0#.cs.ucr.edu`, where `#` is your group number; set **User name** to `ubuntu`, leave the **Password** empty
-12. Click **Advanced**, then select **SSH** and **Authentication** on the left, under **Private key file**, select the key you just saved (`id_rsa.ppk`)
-Ref: [https://winscp.net/eng/docs/ui_login_authentication](https://winscp.net/eng/docs/ui_login_authentication)
-13. Select **Connection** and **Tunnel**, check **Connect through SSH tunnel**, and enter the following information
-	- Host name: `bolt.cs.ucr.edu`
-	- User name: `ucr_net_id`
-	- Password: leave empty
-	- Private key file: select the same key (`id_rsa.ppk`)
-Ref: [https://winscp.net/eng/docs/ui_login_tunnel](https://winscp.net/eng/docs/ui_login_tunnel)
-14. **OK** and then **Save** the site. You may name the site to `cs179g`
-15. Now you can directly login to your EC2 instance. If you open PuTTY from there, the command line is for your EC2 instance
+3. On your local computer, open `PowerShell` and type
+```bash
+scp ucr_net_id@bolt.cs.ucr.edu:/extra/cs179g/ucr_net_id/id_rsa <ANY YOUR WINDOWS LOCAL PATH>
+```
+Remember this path that you just saved the `id_rsa` file to.
+4. Open VSCode, open the file `Users/user_id/.ssh/config`, there type:
+Add the following content to the config file
+	```
+	Host alias_name 
+	  HostName cs179g-fall-2023-0#.cs.ucr.edu
+	  User ubuntu
+	  IdentityFile ~/.ssh/id_rsa_cs179g
+	  ProxyCommand ssh -W %h:%p -i ~/.ssh/id_rsa_cs179g ucr_net_id@bolt.cs.ucr.edu
+	```
+	*alias_name* is your preferred name, you may just set it to `cs179g`. Replace `#`  in the HostName field with your group number.
+ Now try the following in PowerShell:
+	```bash
+	ssh alias_name  # ssh cs179g
+	```
 
 Download and Install VSCode. Install `Remote-SSH` extension in VSCode. Now you will be able to open and code in lab server directly from vscode.
 
