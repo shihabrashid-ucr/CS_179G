@@ -64,9 +64,8 @@ python_lines = txt.filter(lambda line: 'python' in line.lower())
 print(python_lines.count())
 ```
 
-## Install MySQL
+## Install MySQL client
 ```bash
-sudo apt-get -y install mysql-server
 # In virtual environment
 python3 -m pip install mysql-connector-python
 ```
