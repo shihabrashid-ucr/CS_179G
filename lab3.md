@@ -47,7 +47,7 @@
 	Test if `SPARK_HOME` is properly set
 	```bash
 	echo $SPARK_HOME
-	# /home/ubuntu/miniconda3/envs/YOUR_ENV/lib/python3.10/site-packages
+	# /home/ubuntu/miniconda3/envs/YOUR_ENV/lib/python3.10/site-packages/pyspark
 	```
 
 #### Test in Python command line or JupyterLab
