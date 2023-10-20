@@ -107,6 +107,7 @@ sudo dpkg -i ~/mysql-connector-j_8.0.31-1ubuntu22.04_all.deb
 #### Test MySQL with PySpark
 Reference: [https://towardsdatascience.com/pyspark-mysql-tutorial-fa3f7c26dc7](https://towardsdatascience.com/pyspark-mysql-tutorial-fa3f7c26dc7)
 
+Create a folder called `lab3` using `mkdir lab3` and `cd lab3`
 Download 2 test files
 ```bash
 wget https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv -P ~/lab3/files
