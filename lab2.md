@@ -122,7 +122,7 @@ Exit the server by typing `exit` and login to server again. Check whether conda 
 
 Create new environment:
 ```bash
-conda create --name myenv
+conda create -n myenv python=3.10
 # Replace myenv with the name you want
 ```
 Enter new environment:
