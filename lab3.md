@@ -159,15 +159,23 @@ wine_df = spark.read.format("jdbc").option("url", "jdbc:mysql://localhost:3306/c
     .option("user", "your_name").option("password", "some_password").load()
 print(wine_df)
 ```
-
-### Some Common PySpark operations
-[]
 ### Read files directly using PySpark
 ```python
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import lit
 spark = SparkSession.builder.master('local[*]').appName('Random').getOrCreate()
 red_wine_df = spark.read.csv("/home/ubuntu/lab3/files/winequality-red.csv", sep=";", header=True)
+
+# create a new column with default value 1
+red_wine_df = red_wine_df.withColumn("is_red", lit(1))
+white_wine_df = spark.read.csv("/home/ubuntu/lab3/files/winequality-white.csv", sep=";", header=True)
+white_wine_df = white_wine_df.withColumn("is_red", lit(0))
+
+all_wines = red_wine_df.union(white_wine_df)
 ```
+
+### Some Common PySpark operations
+[]
 
 #### (Optional) To use MySQL as Django backend, check 
 By default, Django uses SQLite3 as its backend database, you may use MySQL as its backend.
