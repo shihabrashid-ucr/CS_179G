@@ -28,12 +28,12 @@
 	Add the following line to *~/.bashrc* as well
 	```
 	export PYSPARK_PYTHON=python3
-	export SPARK_HOME=~/your_venv/lib/python3.10/site-packages/pyspark
+	export SPARK_HOME=/home/ubuntu/miniconda3/envs/YOUR_ENV/lib/python3.10/site-packages
 	```
 	Or run the following commands
 	```bash
 	echo "export PYSPARK_PYTHON=python3" >> ~/.bashrc
-	echo "export SPARK_HOME=~/your_venv/lib/python3.10/site-packages/pyspark" >> ~/.bashrc
+	echo "export SPARK_HOME=/home/ubuntu/miniconda3/envs/YOUR_ENV/lib/python3.10/site-packages" >> ~/.bashrc
 	```
 6. Reload bash environment, test `JAVA_HOME` and `SPARK_HOME`
 	```bash
