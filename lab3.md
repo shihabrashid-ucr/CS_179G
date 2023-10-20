@@ -121,9 +121,9 @@ import mysql.connector
 from pyspark.sql import SparkSession
 
 # Test CSV file read with Pandas (not required in this project)
-red_wines = pd.read_csv("/home/ubuntu/winequality-red.csv", sep=";")
+red_wines = pd.read_csv("/home/ubuntu/lab3/files/winequality-red.csv", sep=";")
 red_wines["is_red"] = 1
-white_wines = pd.read_csv("/home/ubuntu/winequality-white.csv", sep=";")
+white_wines = pd.read_csv("/home/ubuntu/lab3/files/winequality-white.csv", sep=";")
 white_wines["is_red"] = 0
 all_wines = pd.concat([red_wines, white_wines])
 print(all_wines)
