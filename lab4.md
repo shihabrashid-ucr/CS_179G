@@ -11,7 +11,7 @@ def add_100():
 from pyspark.sql.functions import col, udf
 from pyspark.sql.types import FloatType()
 add_hundred_UDF = udf(lambda z:add_100(z),FloatType())   
-df.withColumn("Cureated Name", upperCaseUDF(col("fixed acidity"))) \
+df.withColumn("fixed_acidity_updated", add_hundred_UDF(col("fixed acidity"))) \
   .show(10)
 ```
 
