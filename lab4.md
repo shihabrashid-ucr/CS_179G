@@ -1,6 +1,7 @@
 # CS 179G Lab 4
-
-A useful basic ML tutorial: https://towardsdatascience.com/your-first-apache-spark-ml-model-d2bb82b599dd
+## User Defined Functions
+Learn about UDF [here](https://sparkbyexamples.com/pyspark/pyspark-udf-user-defined-function/)
+Task: Convert
 
 ## Download Tweets data
 1. Install [gdown](https://github.com/wkentaro/gdown)
