@@ -4,13 +4,13 @@ Learn about UDF [here](https://sparkbyexamples.com/pyspark/pyspark-udf-user-defi
 Task: Add 100 to all values of "fixed acidity" from previous lab
 1. Create a python function for the task
 ```python
-def add_100():
+def add_100(x):
+    return x + 100
 ```
 2. Register and use UDF
 ```python
 from pyspark.sql.functions import col, udf
-from pyspark.sql.types import FloatType()
-add_hundred_UDF = udf(lambda z:add_100(z),FloatType())   
+add_hundred_UDF = udf(lambda z:add_100(z))   
 df.withColumn("fixed_acidity_updated", add_hundred_UDF(col("fixed acidity"))) \
   .show(10)
 ```
