@@ -175,7 +175,24 @@ all_wines = red_wine_df.union(white_wine_df)
 ```
 
 ### Some Common PySpark operations
-[]
+Select
+```python
+from pyspark.sql.functions import col
+selected_wines = all_wines.select(["fixed acidity", "is_red"])
+```
+Where
+```python
+where_example = all_wines.filter(col("free sulfur dioxide") > 15)
+all_wines.filter(col("is_red") == 1).count()
+```
+Group By
+```python
+grouped_by = all_wines.groupBy("is_red").count()
+```
+Aggregate functions
+```python
+
+```
 
 #### (Optional) To use MySQL as Django backend, check 
 By default, Django uses SQLite3 as its backend database, you may use MySQL as its backend.
