@@ -5,7 +5,7 @@ Task: Add 100 to all values of "fixed acidity" from previous lab
 1. Create a python function for the task
 ```python
 def add_100(x):
-    return x + 100
+    return float(x) + 100 # as x is a string
 ```
 2. Register and use UDF
 ```python
