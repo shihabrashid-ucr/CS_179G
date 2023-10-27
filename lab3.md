@@ -190,6 +190,16 @@ Group By
 grouped_by = all_wines.groupBy("is_red").count()
 ```
 Aggregate functions
+Task: Write a code to print the following output:
+```
++------+----------+-------------------+--------+
+|is_red|sum_sulfur|         avg_citric|max_resi|
++------+----------+-------------------+--------+
+|     0|  172939.0|0.33419150673743736|     9.9|
+|     1|   25384.0| 0.2709756097560964|       9|
++------+----------+-------------------+--------+
+```
+Use Google (the most important skill in learning pyspark)
 ```python
 
 ```
