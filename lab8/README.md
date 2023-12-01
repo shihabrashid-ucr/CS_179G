@@ -72,11 +72,11 @@ Suppose we just want to build a simple search engine that can show different res
 2. Add your hostname and IP address to `ALLOWED_HOSTS` in **demo/demo/settings.py**, you should have something like
 	```python
 	ALLOWED_HOSTS = [
-	    'cs179g-fall-2022-06.cs.ucr.edu',
+	    'cs179g-fall-2023-06.cs.ucr.edu',
 	    '3.131.35.238'
 	]
 	```
-	You can find your IP address by `ping` it. For example, `ping cs179g-fall-2022-06.cs.ucr.edu`, you will get *3.131.35.238*
+	You can find your IP address by `ping` it. For example, `ping cs179g-fall-2023-06.cs.ucr.edu`, you will get *3.131.35.238*
 
 3. Create an app for the home page
 	```bash
@@ -136,4 +136,4 @@ Suppose we just want to build a simple search engine that can show different res
 		python3 manage.py runserver 0.0.0.0:8080
 		```
 
-11. You can access your web interface at [http://cs179g-fall-2022-0#.cs.ucr.edu:8080](http://cs179g-fall-2022-0#.cs.ucr.edu:8080), modify the hostname to your instance.
+11. You can access your web interface at [http://cs179g-fall-2022-0#.cs.ucr.edu:8080](http://cs179g-fall-2023-0#.cs.ucr.edu:8080), modify the hostname to your instance.
