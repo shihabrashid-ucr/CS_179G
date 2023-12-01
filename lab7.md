@@ -40,10 +40,10 @@ ALLOWED_HOSTS = [
 	'your_ec2_ip_address'
 ]
 ```
-where, `your_ec2_hostmane = cs179g-fall-2022-0#.cs.ucr.edu` (replace `#` with your group number) and `your_ec2_ip_address` is the ip address. To find the ip
+where, `your_ec2_hostmane = cs179g-fall-2023-0#.cs.ucr.edu` (replace `#` with your group number) and `your_ec2_ip_address` is the ip address. To find the ip
 address, in the terminal execute:
 ```bash
-ping cs179g-fall-2022-0#.cs.ucr.edu
+ping cs179g-fall-2023-0#.cs.ucr.edu
 ```
 The value that you will see will be your ip address.
 
@@ -84,7 +84,7 @@ Start your website
 # 0.0.0.0:8080 makes your webpage available for public access (from your own machine)
 python3 manage.py runserver 0.0.0.0:8080
 ```
-Then visit [http://cs179g-fall-2022-0#.cs.ucr.edu:8080/polls](http://cs179g-fall-2022-0#.cs.ucr.edu:8080/polls/) (Replace # with your group number)
+Then visit [http://cs179g-fall-2023-0#.cs.ucr.edu:8080/polls](http://cs179g-fall-2023-0#.cs.ucr.edu:8080/polls/) (Replace # with your group number)
 
 You can test your connection with MySQL with the following script for `polls/views.py`
 ```python
